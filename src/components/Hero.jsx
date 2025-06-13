@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden hero-pattern"
+      className="relative pt-20 pb-5 md:pt-32 md:pb-5 overflow-hidden hero-pattern"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white/90 dark:from-gray-900/50 dark:to-gray-900/90 z-0"></div>
       
@@ -57,55 +57,11 @@ const Hero = () => {
             variants={itemVariants}
           >
             Building Tech That Builds Your Business.
-          </motion.p>
-          
-          <motion.div
-            className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
-            variants={itemVariants}
-          >
-            <Button size="lg" className="text-lg px-8 py-6">
-              Explore Our Services <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-              View Portfolio
-            </Button>
-          </motion.div>
-          
-          <motion.div
-            className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-left max-w-3xl mx-auto"
-            variants={itemVariants}
-          >
-            {[
-              "Web App Development", 
-              "Digital Marketing", 
-              "Mobile App Building", 
-              "Logo Design", 
-              "Web Development", 
-              "Poster Making"
-            ].map((service) => (
-              <div key={service} className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span className="text-gray-700 dark:text-gray-300">{service}</span>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
-        
-        <motion.div
-          className="mt-16 max-w-5xl mx-auto"
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
-            <img  alt="Collage of digital services: web app interface, marketing chart, mobile app screen, logo design, website layout, poster design" className="w-full h-auto rounded-xl" src="https://images.unsplash.com/photo-1581943870582-f37dbd95fe06" />
-          </div>
+          </motion.p> 
         </motion.div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 -left-16 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 -right-16 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl"></div>
+     
     </section>
   );
 };

@@ -1,44 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Code, 
-  Smartphone, 
-  Megaphone, 
-  Palette, 
-  Layers, 
-  Image as ImageIcon
+import {
+  MonitorSmartphone,
+  AppWindow,
+  Globe2,
+  PenTool,
+  ServerCog,
+  LayoutDashboard,
 } from "lucide-react";
 
 const services = [
   {
-    icon: <Code className="h-10 w-10 text-blue-500" />,
-    title: "Web Application Building",
-    description: "Custom web applications tailored to your business needs, built with modern technologies for scalability and performance."
+    icon: <MonitorSmartphone className="h-10 w-10 text-blue-500" />,
+    title: "Custom Web Application",
+    description: "Scalable and high-performance web applications tailored to your business goals, built using modern frameworks and best coding practices."
   },
   {
-    icon: <Smartphone className="h-10 w-10 text-blue-500" />,
-    title: "Mobile Application Building",
-    description: "Engaging and intuitive mobile apps for iOS and Android, designed to enhance user experience and drive growth."
+    icon: <AppWindow className="h-10 w-10 text-blue-500" />,
+    title: "Mobile Application Development",
+    description: "Intuitive and engaging mobile apps for iOS and Android, crafted to enhance user experience, boost retention, and drive business growth."
   },
   {
-    icon: <Megaphone className="h-10 w-10 text-blue-500" />,
-    title: "Digital Marketing",
-    description: "Comprehensive digital marketing strategies including SEO, SEM, social media, and content marketing to boost your online presence."
+    icon: <Globe2 className="h-10 w-10 text-blue-500" />,
+    title: "360° Digital Marketing",
+    description: "End-to-end digital marketing solutions including SEO, SEM, social media, and content marketing — built to elevate your brand’s online visibility and lead generation."
   },
   {
-    icon: <Palette className="h-10 w-10 text-blue-500" />,
-    title: "Logo Making",
-    description: "Memorable and impactful logo designs that capture your brand's essence and resonate with your target audience."
+    icon: <PenTool className="h-10 w-10 text-blue-500" />,
+    title: "Brand Identity Design",
+    description: "Impactful branding that captures your brand essence — from memorable logos to cohesive visual identities that connect with your audience."
   },
   {
-    icon: <Layers className="h-10 w-10 text-blue-500" />,
-    title: "Web Development",
-    description: "Responsive and user-friendly websites, from simple landing pages to complex e-commerce platforms."
+    icon: <ServerCog className="h-10 w-10 text-blue-500" />,
+    title: "Full Stack Web Development",
+    description: "Complete web development solutions — from frontend UI/UX to secure backend systems, optimized for performance, scalability, and conversion."
   },
   {
-    icon: <ImageIcon className="h-10 w-10 text-blue-500" />,
-    title: "Poster Making",
-    description: "Creative and eye-catching poster designs for your marketing campaigns, events, or promotional needs."
+    icon: <LayoutDashboard className="h-10 w-10 text-blue-500" />,
+    title: "Creative Collateral Design",
+    description: "Visually striking posters, banners, and promotional designs crafted to captivate attention across events, campaigns, and online platforms."
   }
 ];
 

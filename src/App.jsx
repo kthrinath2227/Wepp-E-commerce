@@ -10,6 +10,10 @@ import Portfolio from "@/components/Portfolio";
 import CallToAction from "@/components/CallToAction";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Pricing from "@/components/Pricing";
+import Features from "@/components/Features";
+import Testimonials from "@/components/Testimonials";
+
 
 const App = () => {
   const { toast } = useToast();
@@ -20,8 +24,11 @@ const App = () => {
       <main>
         <Hero />
         <Services />
+        <Features />
+         <CallToAction />
         <Portfolio />
-        <CallToAction />
+        <Testimonials /> 
+        {/* <Pricing /> */}
         <Contact />
       </main>
       <Footer />

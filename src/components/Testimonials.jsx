@@ -7,24 +7,24 @@ const testimonials = [
   {
     id: 1,
     content: "This platform has completely transformed how we operate. The intuitive interface and powerful features have helped us increase productivity by over 40%.",
-    author: "Sarah Johnson",
-    position: "CEO, TechStart Inc.",
+    author: "Sarah",
+    position: "LiveInsurence.com",
     rating: 5,
     image: "woman-ceo-professional-headshot"
   },
   {
     id: 2,
     content: "I've tried many similar services, but nothing compares to this. The customer support is exceptional, and the platform's reliability has been crucial for our business growth.",
-    author: "Michael Chen",
-    position: "Marketing Director, Global Brands",
+    author: "Sridevi",
+    position: "Marketing Director of Sridevi Enterprises",
     rating: 5,
     image: "asian-man-professional-business-portrait"
   },
   {
     id: 3,
     content: "The analytics features alone are worth the investment. We've gained valuable insights that have helped us make data-driven decisions and optimize our strategy.",
-    author: "Jessica Williams",
-    position: "Operations Manager, Innovate Solutions",
+    author: "Murali Krishna",
+    position: "Operations Manager, HomeShowCase",
     rating: 4,
     image: "woman-business-professional-smiling"
   }

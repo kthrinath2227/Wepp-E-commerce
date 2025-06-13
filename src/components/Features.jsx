@@ -14,7 +14,7 @@ const features = [
   {
     icon: <Zap className="h-10 w-10 text-blue-500" />,
     title: "Lightning Fast",
-    description: "Our platform is optimized for speed, ensuring your customers have a seamless experience every time."
+    description: "Our platform is optimized for site performance and user experience, ensuring your customers have a seamless experience every time."
   },
   {
     icon: <Shield className="h-10 w-10 text-blue-500" />,
@@ -23,7 +23,7 @@ const features = [
   },
   {
     icon: <BarChart className="h-10 w-10 text-blue-500" />,
-    title: "Advanced Analytics",
+    title: "Get actionable web analytics and insights",
     description: "Gain valuable insights with our comprehensive analytics and reporting tools."
   },
   {
@@ -33,12 +33,12 @@ const features = [
   },
   {
     icon: <Globe className="h-10 w-10 text-blue-500" />,
-    title: "Global Reach",
-    description: "Connect with customers worldwide through our globally distributed infrastructure."
+    title: "Global Reach for Your Brand",
+        description: "Connect with customers worldwide through our globally distributed infrastructure."
   },
   {
     icon: <Smartphone className="h-10 w-10 text-blue-500" />,
-    title: "Mobile Optimized",
+    title: "Mobile Optimized Experience",
     description: "Fully responsive design ensures a perfect experience on any device, anywhere."
   }
 ];
@@ -86,21 +86,7 @@ const Features = () => {
           ))}
         </div>
 
-        <motion.div 
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-10 rounded-2xl shadow-xl max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to experience these features?</h3>
-            <p className="text-white/90 text-lg mb-6">Join thousands of satisfied customers who have transformed their business with our platform.</p>
-            <button className="bg-white text-blue-600 hover:bg-blue-50 font-medium py-3 px-8 rounded-lg transition-colors">
-              Start Your Free Trial
-            </button>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );

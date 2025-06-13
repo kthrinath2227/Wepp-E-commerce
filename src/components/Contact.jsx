@@ -3,7 +3,19 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import {
+  Instagram,
+  Facebook,
+  Youtube,
+  Linkedin,
+  Phone,
+  Mail,
+  MapPin,
+  Send,
+  MessageSquare
+} from "lucide-react";
+
+
 
 const Contact = () => {
   const { toast } = useToast();
@@ -20,46 +32,83 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const { name, email, subject, message } = formData;
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const fullMessage = `Name: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+  if (isMobile) {
+    // WhatsApp link for mobile
+    const phoneNumber = "919381187905";
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${fullMessage}`;
+    window.open(whatsappLink, "_blank");
+  } else {
+    // Gmail compose link for desktop
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=k.thrinath2227@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
+    )}`;
+    window.open(gmailLink, "_blank");
+  }
+
+  toast({
+    title: "Message redirected!",
+    description: isMobile ? "Opening WhatsApp..." : "Opening Gmail...",
+    duration: 5000,
+  });
+
+  setFormData({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+};
+
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
-        duration: 5000,
-      });
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     toast({
+  //       title: "Message sent!",
+  //       description: "We'll get back to you as soon as possible.",
+  //       duration: 5000,
+  //     });
       
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       subject: "",
+  //       message: ""
+  //     });
       
-      setIsSubmitting(false);
-    }, 1500);
-  };
+  //     setIsSubmitting(false);
+  //   }, 1500);
+  // };
 
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6 text-blue-500" />,
       title: "Email Us",
-      details: "info@yourcompany.com",
-      link: "mailto:info@yourcompany.com"
+      details: "k.thrinath2227@gmail.com",
+      link: "mailto:k.thrinath2227@gmail.com"
     },
     {
       icon: <Phone className="h-6 w-6 text-blue-500" />,
       title: "Call Us",
-      details: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      details: "+91 9381187905",
+      link: "tel:+919381187905"
     },
     {
       icon: <MapPin className="h-6 w-6 text-blue-500" />,
       title: "Visit Us",
-      details: "123 Business Ave, Suite 100, San Francisco, CA 94107",
+      details: "Bhavanipuram Vijayawada, Andhra Pradesh, India",
       link: "#"
     }
   ];
@@ -112,7 +161,7 @@ const Contact = () => {
                 ))}
               </div>
               
-              <div className="mt-10">
+              {/* <div className="mt-10">
                 <h4 className="font-medium text-lg mb-4">Follow Us</h4>
                 <div className="flex space-x-4">
                   {["facebook", "twitter", "instagram", "linkedin"].map((social) => (
@@ -127,7 +176,42 @@ const Contact = () => {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
+              <div className="mt-10">
+  <h4 className="font-medium text-lg mb-4">Follow Us</h4>
+  <div className="flex space-x-4">
+    <a
+      href="https://www.instagram.com/thedevstechnologies"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white dark:bg-gray-600 p-3 rounded-full shadow-md hover:bg-blue-50 dark:hover:bg-gray-500 transition-colors"
+      aria-label="Instagram"
+    >
+      <Instagram className="w-5 h-5 text-pink-500" />
+    </a>
+
+    <a
+      href="https://wa.me/9381187905"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white dark:bg-gray-600 p-3 rounded-full shadow-md hover:bg-blue-50 dark:hover:bg-gray-500 transition-colors"
+      aria-label="WhatsApp"
+    >
+      <MessageSquare className="w-5 h-5 text-green-500" />
+    </a>
+
+    <a
+      href="https://www.facebook.com/ThedevsTechonlogies Techonlogies"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white dark:bg-gray-600 p-3 rounded-full shadow-md hover:bg-blue-50 dark:hover:bg-gray-500 transition-colors"
+      aria-label="Facebook"
+    >
+      <Facebook className="w-5 h-5 text-blue-600" />
+    </a>
+  </div>
+</div>
+
             </div>
           </motion.div>
           

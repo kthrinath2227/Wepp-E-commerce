@@ -180,21 +180,39 @@ logger.error = (msg, options) => {
 
 	loggerError(msg, options);
 }
-
 export default defineConfig({
-	customLogger: logger,
-	plugins: [react(), addTransformIndexHtml],
-	server: {
-		cors: true,
-		headers: {
-			'Cross-Origin-Embedder-Policy': 'credentialless',
-		},
-		allowedHosts: true,
-	},
-	resolve: {
-		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
+  base: '/TheDevsTechnologies/', 
+  customLogger: logger,
+  plugins: [react(), addTransformIndexHtml],
+  server: {
+    cors: true,
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'credentialless',
+    },
+    allowedHosts: true,
+  },
+  resolve: {
+    extensions: ['.jsx', '.js', '.tsx', '.ts', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
 });
+
+// export default defineConfig({
+// 	customLogger: logger,
+// 	plugins: [react(), addTransformIndexHtml],
+// 	server: {
+// 		cors: true,
+// 		headers: {
+// 			'Cross-Origin-Embedder-Policy': 'credentialless',
+// 		},
+// 		allowedHosts: true,
+// 	},
+// 	resolve: {
+// 		extensions: ['.jsx', '.js', '.tsx', '.ts', '.json', ],
+// 		alias: {
+// 			'@': path.resolve(__dirname, './src'),
+// 		},
+// 	},
+// });
