@@ -36,7 +36,7 @@ const Navbar = () => {
           {/* Brand */}
           <div className="flex items-center gap-2 overflow-hidden">
             <img
-              className="w-7 h-7 md:w-9 md:h-9"
+              className="w-10 h-7 md:w-10 md:h-9"
               src="https://res.cloudinary.com/dx3m8gmpa/image/upload/v1749735228/globe-bg_1_cq2ba9.png"
               alt="Logo"
             />
