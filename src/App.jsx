@@ -35,10 +35,9 @@ const App = () => {
       <Toaster />
 
       {/* Floating Social Icons */}
-      <div className="fixed bottom-20 right-6 flex flex-col items-center space-y-4 z-50">
+      <div className="fixed bottom-20 right-10 sm:right-6 flex flex-col items-center space-y-4 z-50">
   <a
-    href="https://instagram.com/thedevstechnologies
-"
+    href="https://instagram.com/thedevstechnologies"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -52,6 +51,7 @@ const App = () => {
     <FaWhatsapp className="text-green-500 text-4xl hover:scale-110 transition-transform duration-200 float-animate" />
   </a>
 </div>
+
     </div>
   );
 };
