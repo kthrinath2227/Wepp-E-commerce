@@ -1,120 +1,136 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingCart, Home, Mail, Menu, X, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
+  const navItems = [
+    { path: "/", label: "Home", icon: Home },
+    { path: "#", label: "Store", icon: Store },
+    { path: "#", label: "Contact", icon: Mail },
   ];
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      }`}
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="glass-effect sticky top-0 z-50 border-b border-white/20"
     >
-      <div className="w-full px-3 sm:px-4 md:px-6 lg:px-8 max-w-[100vw] overflow-x-hidden">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a href="/" className="flex items-center">
+            <motion.div>
+              <img
+                src="https://res.cloudinary.com/dzwxkhkvi/image/upload/v1758265475/Wepp-logo-removebg-preview_nti96y.png"
+                alt="Logo"
+                className="h-10 w-15"
+              />
+            </motion.div>
+            <span className="text-lg sm:text-xl md:text-md font-bold bg-gradient-to-r from-[#8CC43D] to-[#0AA79B] bg-clip-text text-transparent">
+              E-commerce
+            </span>
+          </a>
 
-          {/* Brand */}
-          <div className="flex items-center gap-2 overflow-hidden">
-            <img
-              className="w-10 h-7 md:w-10 md:h-9"
-              src="https://res.cloudinary.com/dx3m8gmpa/image/upload/v1749735228/globe-bg_1_cq2ba9.png"
-              alt="Logo"
-            />
-             <div className="h-6 w-0.5 bg-gray-400 sm:h-8 md:h-10" />
-            <div className="flex flex-col text-left leading-tight overflow-hidden">
-              <h1 className="text-sm sm:text-base md:text-xl font-bold text-blue-900">
-                THEDEVS <span className="text-black">TECHNOLOGIES</span>
-              </h1>
-              <p className="text-[7px] sm:text-[8px] md:text-xs text-gray-500 uppercase tracking-wider whitespace-nowrap">
-                Building Tech That Builds Your Business.
-              </p>
-            </div>
-          </div>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a key={item.path} href={item.path}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all text-gray-300 hover:text-white hover:bg-white/10"
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </motion.div>
+                </a>
+              );
+            })}
+          </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <nav>
-              <ul className="flex space-x-6">
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-gray-900 dark:text-gray-300 hover:text-primary dark:hover:text-white transition"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <a href="#contact">
-              <Button className="px-4 py-2 text-sm h-9">ContactUs</Button>
+          {/* Right Side */}
+          <div className="flex items-center space-x-4">
+            {/* Cart Icon */}
+            <a href="#cart">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="glass-effect border-white/20 hover:bg-white/20"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                </Button>
+              </motion.div>
             </a>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex-shrink-0">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle Menu"
-            >
-              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button
+                onClick={toggleMenu}
+                variant="outline"
+                size="icon"
+                className="glass-effect border-white/20 hover:bg-white/20"
+              >
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 shadow-lg overflow-hidden"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={menuVariants}
+            className="md:hidden glass-effect border-t border-white/20"
           >
-            <div className="px-4 pt-3 pb-4 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full">ContactUs</Button>
-              </a>
-            </div>
+            <nav className="flex flex-col items-center space-y-4 p-4">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div key={item.path} variants={itemVariants}>
+                    <a
+                      href={item.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center space-x-2 text-lg text-white hover:text-blue-300"
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span>{item.label}</span>
+                    </a>
+                  </motion.div>
+                );
+              })}
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 };
 

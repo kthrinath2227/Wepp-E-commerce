@@ -1,5 +1,5 @@
 {
-  "name": "TheDevsTechnologies",
+  "name": "Wepp E-commerce",
   "type": "module",
   "version": "1.0.0",
   "private": true,
@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
