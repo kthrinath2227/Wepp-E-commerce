@@ -1,8 +1,9 @@
 {
-  "name": "Wepp E-commerce",
+  "name": "Wepp-E-commerce",
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://kthrinath2227.github.io/Wepp-E-commerce",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
